@@ -26,14 +26,14 @@ public class Cars {
     }
 
     private void validateSize(List<String> cars) {
-        if (cars.size() > 8 || cars.size() < 1) {
+        if (cars.size() > 8) {
             throw new IllegalArgumentException(CARS_SIZE_ERROR_MESSAGE);
         }
     }
 
     private void validateNameLength(List<String> cars) {
         for (String car : cars) {
-            if (car.length() < 1 || car.length() > 5) {
+            if (car.length() > 5 || car.isBlank()) {
                 throw new IllegalArgumentException(CAR_NAME_RANGE_ERROR_MESSAGE);
             }
         }
