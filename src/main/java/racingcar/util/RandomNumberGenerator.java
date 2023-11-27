@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator {
 
-    public int generate() {
+    public int execute() {
         return Randoms.pickNumberInRange(0, 9);
     }
 }
