@@ -17,6 +17,10 @@ public class Cars {
         this.cars = convertAndValidate(inputCars);
     }
 
+    public List<String> getCars() {
+        return cars;
+    }
+
     private List<String> convertAndValidate(String inputCars) {
         List<String> cars = Convert.StringToListByComma(inputCars);
         validateSize(cars);
