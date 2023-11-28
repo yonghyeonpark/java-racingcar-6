@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
+import racingcar.model.Cars;
 import racingcar.model.Score;
 
 public class RacingCarService {
@@ -9,10 +10,16 @@ public class RacingCarService {
     private static final String WINNERS_FORMAT = "최종 우승자 : ";
     private static final String COMMA_AND_SPACE = ", ";
 
+    private final Cars cars;
     private final Score score;
 
-    public RacingCarService(List<String> cars) {
-        this.score = new Score(cars);
+    public RacingCarService(Cars cars) {
+        this.cars = cars;
+        this.score = new Score(cars.getCars());
+    }
+
+    public List<String> getCars() {
+        return cars.getCars();
     }
 
     public void checkMoveForward(int num, String carName) {
