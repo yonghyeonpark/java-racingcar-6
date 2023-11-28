@@ -6,6 +6,8 @@ import racingcar.model.Score;
 public class RacingCarService {
 
     private static final int MOVING_STANDARD = 4;
+    private static final String WINNERS_FORMAT = "최종 우승자 : ";
+    private static final String COMMA_AND_SPACE = ", ";
 
     private final Score score;
 
@@ -17,5 +19,13 @@ public class RacingCarService {
         if (num >= MOVING_STANDARD) {
             score.addMoving(carName);
         }
+    }
+
+    public String getWinners() {
+        List<String> winners = score.pickWinners();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(WINNERS_FORMAT)
+                .append(String.join(COMMA_AND_SPACE, winners));
+        return stringBuilder.toString();
     }
 }
