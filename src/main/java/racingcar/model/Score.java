@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,31 @@ public class Score {
 
     public void addMoving(String carName) {
         score.put(carName, score.get(carName) + INCREMENTAL_VALUE);
+    }
+
+    public List<String> pickWinners() {
+        int maxValue = findMaxValue();
+        return findWinners(maxValue);
+    }
+
+    private int findMaxValue() {
+        int maxValue = Integer.MIN_VALUE;
+        for (int resultValue : score.values()) {
+            if (resultValue > maxValue) {
+                maxValue = resultValue;
+            }
+        }
+        return maxValue;
+    }
+
+    private List<String> findWinners(int maxValue) {
+        List<String> winners = new ArrayList<>();
+        for (String carName : score.keySet()) {
+            if (score.get(carName) == maxValue) {
+                winners.add(carName);
+            }
+        }
+        return winners;
     }
 
     @Override
