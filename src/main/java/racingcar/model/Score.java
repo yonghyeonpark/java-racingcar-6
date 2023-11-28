@@ -10,6 +10,7 @@ public class Score {
     private static final int INCREMENTAL_VALUE = 1;
     private static final String CAR_MOVING_RESULT_FORMAT = " : ";
     private static final String MOVING = "-";
+    private static final String NEW_LINE = "\n";
 
     private final LinkedHashMap<String, Integer> score;
 
@@ -37,6 +38,7 @@ public class Score {
             for (int i = 0; i < entry.getValue(); i++) {
                 stringBuilder.append(MOVING);
             }
+            stringBuilder.append(NEW_LINE);
         }
         return stringBuilder.toString();
     }
