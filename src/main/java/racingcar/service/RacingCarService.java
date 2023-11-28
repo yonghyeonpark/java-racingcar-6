@@ -21,6 +21,10 @@ public class RacingCarService {
         }
     }
 
+    public String getOneAttemptResult() {
+        return score.toString();
+    }
+
     public String getWinners() {
         List<String> winners = score.pickWinners();
         StringBuilder stringBuilder = new StringBuilder();
