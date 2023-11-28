@@ -8,9 +8,10 @@ import racingcar.util.Convert;
 public class Cars {
 
     private static final int MAX_CARS_NUMBER = 8;
+    private static final int MIN_CARS_NUMBER = 2;
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
-    private static final String CARS_SIZE_ERROR_MESSAGE = "[ERROR] 참가 자동차의 수의 범위는 1~8입니다.";
+    private static final String CARS_SIZE_ERROR_MESSAGE = "[ERROR] 참가 자동차의 수의 범위는 2~8입니다.";
     private static final String CAR_NAME_RANGE_ERROR_MESSAGE = "[ERROR] 자동차 이름의 범위는 1~5자입니다.";
     private static final String CAR_NAMES_DUPLICATE_MESSAGE = "[ERROR] 자동차의 이름은 중복될 수 없습니다.";
 
@@ -29,7 +30,7 @@ public class Cars {
     }
 
     private void validateSize(List<String> cars) {
-        if (cars.size() > MAX_CARS_NUMBER) {
+        if (cars.size() > MAX_CARS_NUMBER || cars.size() < MIN_CARS_NUMBER) {
             throw new IllegalArgumentException(CARS_SIZE_ERROR_MESSAGE);
         }
     }

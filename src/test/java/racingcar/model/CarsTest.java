@@ -9,11 +9,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarsTest {
 
-    @DisplayName("경주에 참가하는 차가 8대를 넘기면 예외가 발생한다.")
-    @Test
-    void should_ThrowException_When_CarsSizeOverEight() {
+    @DisplayName("경주에 참가하는 차가 8대를 넘기거나 2대보다 적으면 예외가 발생한다.")
+    @ParameterizedTest(name = "[테스트 케이스 {index}] 자동차 이름 입력값 = {arguments}")
+    @ValueSource(strings = {"car1", "car1,car2,car3,car4,car5,car6,car7,car8,car9"})
+    void should_ThrowException_When_CarsSizeOverEightOrUnderTwo(String inputCarNames) {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new Cars("car1,car2,car3,car4,car5,car6,car7,car8,car9"))
+                .isThrownBy(() -> new Cars(inputCarNames))
                 .withMessageContaining("[ERROR]");
     }
 
